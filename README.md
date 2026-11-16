@@ -8,6 +8,24 @@ Aplicación web para que un equipo de soporte técnico gestione las incidencias 
 
 Proyecto personal de 2.º de DAM.
 
+## Capturas
+
+**Listado de tickets** con búsqueda, filtros y paginación:
+
+![Listado de tickets](docs/tickets.png)
+
+**Detalle de un ticket** con sus comentarios y el cambio de estado, prioridad y técnico:
+
+![Detalle de un ticket](docs/ticket.png)
+
+**Panel** con el resumen por estado y prioridad:
+
+![Panel](docs/panel.png)
+
+| Clientes | Inicio de sesión |
+|---|---|
+| ![Clientes](docs/clientes.png) | ![Inicio de sesión](docs/login.png) |
+
 ## Funcionalidades
 
 - **Inicio de sesión** con token (Laravel Sanctum) y dos roles: administrador y técnico.
