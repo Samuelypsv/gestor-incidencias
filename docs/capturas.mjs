@@ -1,0 +1,18 @@
+import { chromium } from 'playwright';
+const base = 'http://localhost:8000';
+const out = process.env.OUT;
+const b = await chromium.launch();
+const p = await b.newPage({ viewport: { width: 1280, height: 780 }, deviceScaleFactor: 1.5, locale: 'es-ES' });
+await p.goto(base + '/login'); await p.waitForSelector('button');
+await p.screenshot({ path: out + '/login.png' });
+await p.click('button:has-text("Entrar")');
+await p.waitForSelector('text=Pendientes por prioridad'); await p.waitForTimeout(500);
+await p.screenshot({ path: out + '/panel.png' });
+await p.goto(base + '/tickets'); await p.waitForSelector('tbody tr a'); await p.waitForTimeout(500);
+await p.screenshot({ path: out + '/tickets.png' });
+await p.click('text=Copia de seguridad nocturna fallida');
+await p.waitForSelector('text=Comentarios (2)'); await p.waitForTimeout(500);
+await p.screenshot({ path: out + '/ticket.png' });
+await p.goto(base + '/clientes'); await p.waitForSelector('tbody tr'); await p.waitForTimeout(500);
+await p.screenshot({ path: out + '/clientes.png' });
+await b.close();
